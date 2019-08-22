@@ -61,15 +61,13 @@ When working on the previous project I tried to create the PostgreSQL database o
 
 ![](Images/Start_Postgre.PNG)
 
-
-
-**Step 2:** Create new user
-
-![](Images/Create_User.PNG)
-
-**Step 3:** Create new database for health informatics school
+**Step 2:** Create new database for health informatics school
 
 ![](Images/Create_H_INFO.PNG)
+
+**Step 3:** Create new user
+
+![](Images/Create_User.PNG)
 
 **Step 4:** Open connections for database use
 
@@ -81,13 +79,37 @@ The codes created for this project have all been used on a local desktop databas
 
 **Step 1:** Create directories needed for python codes on server
 
+![](Images/mirror.PNG)
+
 **Step 2:** Copy all python codes and data files for testing. 
+
+![](Images/python_file_transafer.PNG)
+
+![](Images/source_data.PNG)
+
+![](Images/data_upload.PNG)
+
+![](Images/python_file_transafer.PNG)
+
+![](Images/completed_data_tranfer_purtty.PNG)
 
 **Step 3:** Update files to use directories and Regis server
 
+![](Images/up_date_gover.PNG)
+
+![](Images/Updates_Import_CSV.PNG)
+
 **Step 3:** Run files for testing 
 
+![](Images/Import_CSV_Server_Test. PNG)
+
+![](Images/Run_zoom.PNG)
+
+![](Images/Governance_test.PNG)
+
 **Step 4:** Check database for validation
+
+![](Images/SQL_Database_check.PNG)
 
 # Part 4: Install Chron scheduler on Regis server and create KSH files
 
