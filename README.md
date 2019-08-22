@@ -1,73 +1,96 @@
 # Gilbert Anthony Bernal MSDS-696 Data Science Project
 
 ## Overview
-The data science project that was worked on for the Regis MSDS 696 practicum is titled "Establishment of Regis Healthcare Informatics Database – Continued". The goal of this project was to continue from the last data science project and to complete building the database for the Regis Health Informatics school. In the previous project I picked the best database to use based on the requirements and created python codes to create database tables based of CSV files and upload the data a from these files to its unique table. After this an analysis was done to show a proof on concept on how these codes work an can be used. In this project continuation new python codes were created to allow for multiple file types to be used with the previous code used to create tables. This allows users the ability to use different file types instead of just a single one. A new code was also created to add data governance to the database. This makes it so the database stays clean by removing tables that are not being used any more. After the codes were created the PostgreSQL database was then created on the Regis sever. The codes used for the local database where then copied over to the server for testing. Chron scheduler was then aded to the database as well to allow for code automation. This created a way for the Python codes to run on a consistent time. A HTML form was then created to allow users to upload files to the database. This makes it so the user can upload a file from their local computer to the Regis server for the scheduled codes to take the uploaded file and created their unique table for them. An analysis on Dengue fever cases in the Philippines was then done to show a proof of concept on how these codes and database could be used by students in the Regis Health Informatics School. 
+The data science project that was worked on for the Regis MSDS 696 practicum is titled "Establishment of Regis Healthcare Informatics Database – Continued". The goal of this project was to continue from the last data science project and to complete building the database for the Regis Health Informatics school. In the previous project I picked the best database to use based on the requirements and created python codes to create database tables based of CSV files and upload the data a from these files to its unique table. After this an analysis was done to show a proof on concept on how these codes work an can be used. In this project continuation new python codes were created to allow for multiple file types to be used with the previous code used to create tables. This allows users the ability to use different file types instead of just a single one. A new code was also created to add data governance to the database. This makes it so the database stays clean by removing tables that are not being used any more. After the codes were created the PostgreSQL database was then created on the Regis sever. The codes used for the local database where then copied over to the server for testing. Chron scheduler was then added to the database as well to allow for code automation. This created a way for the Python codes to run on a consistent time. A HTML form was then created to allow users to upload files to the database. This makes it so the user can upload a file from their local computer to the Regis server for the scheduled codes to take the uploaded file and created their unique table for them. An analysis on Dengue fever cases in the Philippines was then done to show a proof of concept on how these codes and database could be used by students in the Regis Health Informatics School. 
 
-## Database Requirments & Goal
-After talking to Dr. Judit Olah about the database needed for the program there were no clear requements. It was clear however that many indivudals could use this database for a variety of data from different sources that might not be used by anyone else but the person uploading it. This made the goal for the project to create a simple method for any one to use or update that would create a table based for each of the CSV files in a directory based its headers and then upload the data from the CSV file to its table. After that the files CSV files would have to be moved to an archive folder to make sure that the table does not get created more than once. 
-
+## Requirements & Goal
+For this project continuation there were numerous goals and requirements. The first goal was to create a way to allow for multiple data formats to be used with the previous project code. The previous code only allowed for CSV files. After looking through multiple health care organization databases CSV, JSON, and Excel were the most common formats that the databases stored their data in. Since the previous project’s codes took CSV files a code had to updated or created to allow for JSON and Excel files to run with the previous project codes. The next goal was to create a python code to add data governance to the database. This needed to be done so that the database stayed clean. If data governance was not added to this database, then there would be unused data on it. This unused data would take up unnecessary space that could make it harder to find data and fill up the allowed space for the database. The next goal was to create the PostgreSQL server on Regis Server. The database needed to be created on the server to test and all related codes. This had to be done to make any necessary updates to the codes as needed to make sure they ran successfully on the server. After this was done the next goal was to create a way to automate these codes on a consistent schedule. This had to be done so that if any individual were to upload a file to the server the codes needed to create their unique table would run within a reasonable time to create their table based off their file. Last goal and requirement was to create a HTML webform to allow for a file to be uploaded to the server. This webform allows users to upload a file from their local drive to the server so that their file can be created into a unique table for them to use. 
 ## Tools
 
 ### PostgreSQL
-PostgreSQL is a open source object-relational database system that uses the standard SQL language and extends the language with various features. The reasons why Postgres was chosen for this project over other database management systems was first the fact that Postgre was free and opensource. This means that there was absolutely no money needed in order to install and start using the database management system. The second reason was because Postgres works with a variety of data types. Examples of data types that Postgre works with are JSON, CSV, and XML. Making sure that the database chosen works well with various formats is important because the data the Health Informatics school will be using can vary based on the health organization they are getting their data from. The next reason is because Postgre works with various coding languages such as Python. Python has various libraries that can be used with PostgreSQL or manipulate data if needed before uploading the CSV data to the database. The last reason why PostgreSQL was chosen over other database is because it has a simple built in method COPY that allows users to upload CSV, JSON, and XML data files into its tables quickly.
+PostgreSQL is a free open source object-relational database system that uses the standard SQL language and extends the language with various features. The reason why this database was chosen in the previous project is because it cost nothing to download, use, and works well with CSV files. It also has a command that allows for quick CSV file upload called COPY. This command created a simple and quick way to upload the files to the table created for it. 
 
 ### Python
-Python is an open source high level programming language. The reason why Python was chosen for this project is that it has various libraries that work well with PostgreSQL and has other libraries that could help with the goals of the project.
+Python is an open source high level programming language. The reason why Python was chosen for this and the previous project is that it has various libraries that work well with PostgreSQL and has other libraries that could help with the goals of the project.
 ### Python Libraries Used
-Below are the Python libraries used for this project
+Below are the new Python libraries used for this project not previously used in the previous
 
-**CSV:**
-The CSV Library is used to allow python to work with CSV files. The reason why it was used in this code was simply to import any csv file needed. 
+**PANDAS:**
+The PANDAS library is used to allow python to work and use data structures and data analysis tools. The reason why this library was used for this code was to take in JSON files and convert them to CSV files for the previous project codes to create a unique table for it. 
 
-**AST:**
-AST stands for abstract syntax trees and is a python library that is used to find out programmatically what the current grammar looks like. This package was used to look at the fields in the CSV file and identify the datatype that is stored in them. This helps with creating a CREATE TABLE PostgreSQL statement. The reason why this library is important is because if the CREATE TABLE statement does not have the correct data types for the column then the data cannot be uploaded. 
+**XLRD:**
+XLRD is a python library that allows python to work with Microsoft Excel spreadsheets. This library was needed in order go through an excel file, identify each sheet, and create a CSV based off each of the sheets within the file. These new CSV files are then turned into unique tables by the previous project codes. 
 
-**PSYCOPG2:**
-This library is the most popular PostgreSQL adaptor for Python. This package allows python to use PostgreSQL commands. The package was needed for the code in this project in order to create the table in the database for CSV files and to use the PostgreSQL COPY command to upload the data from the CSV files to their unique tables. 
+**TOUCH:**
+The TOUCH library allows python to use a Linux command called touch. Touch allows for the creation of blank files. The was required for this project because it created a way to generate trigger files needed for the KSH files used for the Chron scheduler.  
 
-**OS:**
-The OS library is used to allow operating system functionality in python. This library is used to see all CSV files within a directory and begin running the created to create a table for these files and upload them to their unique table. 
+### Chron
 
-**SHUTIL**
-This library offers a number of high level operations for manipulating files. It can provide a way to copy, move, or remove files. This library was used to create a way to move CSV files from its main folder used for the python code to an archive folder so that multiple tables will not be created
+Chron is a UNIX tool that is used to schedule commands or script on a server to run automatically at a time the user chooses. This tool was chosen to automate the table creation and data governance codes. 
+
+### HTML
+HTML is a web-based code used to create websites. HTML was used for this project to create a webform to allow users to upload their data to the server to have a unique table created based on the file uploaded. 
 
 ### Tableau
 
-Tableau is a powerful analytical tool that can be used for business intelligence. This tool was chosen over other analytical tools because of its ability to connect directly to databases, use SQL, and built in functions. 
+Tableau is an analytical tool that can be used for building dashboards, live reporting, and analytics. This tool was chosen over other analytical tools because of its ability to connect directly to databases, ability to run SQL queries, built in functions, and for its ability to do complete analysis with the data loaded to the tool. 
 
-# Part 1: Create the Database
-Creating the database was the first step that had to be completed for the project. The reason is because a database was needed in order to test the CSV table creation and upload methods. Since no money was provided for this project open source database management systems were examined. After examining different open source databases, the one chosen was PostgreSQL. The reason why this one was chosen over other open source databases was because it uses the standard SQL language and has a command called COPY that can be used to upload CSV files directly into tables. Making sure that the database used the standard SQL language was important because many users know this language already. This makes it easy for users to work with the data that is being uploaded and understand the code used in python. The ability to upload CSV is important since these are the types of files used by many health care organizations. 
+# Part 1: Create Python Code
+Two Python codes were created for this project. The two codes create where Convert.py and Database_Governance.py.
 
-**Step 1: Download PostgreSQL**
-![](Images/Postgre_Download.PNG)
-
-**Step 2: Follow Install Directions and Start Database**
-![](Images/Postgre_Server.PNG)
-
-# Part 2: Create Python Code
-Three Python codes were created for this project. These codes were Info.py, Import_Function.py and Import_CSV.py.
-
-**Info.py:** This code is used to store login credentials of the PostgreSQL admin account as variables for any Python code using PostgreSQL to use. This user must be an admin so that it can use any of the database table commands with no issue.
+**Convert.py:** This code is used convert JSON and Excel files to a CSV file. The reason why they are being converted to CSV is because the codes used in the previous project for creating the unique tables works only with files in a  CSV format. Covering these files to a CSV instead of updating the previous code saved time, did not risk issues when updating previous code, and was the least path of resistance. This code works by using different python libraries for the file conversion. For JSON files PANDAS was used. PANDAS was chosen because of how it works with JSON files and its ability to export data frames to CSV. XLRD is used to go through each of the excel sheets within a file and covert them to a CSV file. This will turn a single excel file into a multiple CSV files depending on the number of sheets within it. The code uses an if statement to decide what library to use for conversion. 
 
 ![](Images/Info.PNG)
 
-**Import_Function.py:** This code stores a function that is used to take any CSV file and create a table based on the headers and values stored in the CSV. After the CREATE TABLE statement is created the code then uses the variables in the Info.py file to connect to the PostgreSQL database and run the CREATE TABLE statement in order to create the unique table for the CSV. After that another connection is made and the COPY command is used to upload the data from the CSV used to create the table into it. 
+**Database_Governance.py:** This code is used to check the age of a file that was used for creating a unique table. Based on the age of the file the code will go through and decide if the unique table created from that file needs to be deleted. If it does need to be deleted it connects to the PostgreSQL server and runs a drop table statement with the name of the of the file/table name.
 
-![](Images/Import_Function1.PNG)
+![](Images/Import_Function1.PNG
 
-![](Images/Import_Function2.PNG)
+# Part 2: Create PostgreSQL database on Regis server 
+## Previous Project Issues
 
-**Import_CSV.py:** This code is used to obtain the paths of the directory where the CSV files are stored and the archive directory that we want our files to move to after running the Import_function.py. After obtaining the paths the code then creates a function that will go through each of the files within a certain directory. After this a loop is used to go through all of the files in the directory and run the function created in the Import_Function.py to create the table and upload the data for every CSV file in the directory. After that the file is then moved to the archive folder to make sure that the table is not created again. 
+When working on the previous project I tried to create the PostgreSQL database on the server. When trying to do so I ran into a connection issue. When trying to connect I would either run into a timeout error. If I was able to connect, I would get disconnected after a period of time. After working to resolve this issue and testing with putty and WinSCP the issue was resolved. Once this issue was resolved the commands needed to install. Once the database was installed a new user was created along with a new database call H_INFO. Once this was done the database connections were modified to allow all users access from their local machine. 
 
-![](Images/Import_CSV.PNG)
+**Step 1:** Run Commands needed for PostgreSQL database installation.
 
-# Part 3: Run Analysis to Test Database & Code
-## Background
+**Step 2:** Create new user
+
+**Step 3:** Create new database for health informatics school
+
+**Step 3:** Create new database for health informatics school
+
+**Step 4:** Open connections for database use
+
+# Part 3: Copy and test all database python codes on server  
+
+The codes created for this project have all been used on a local desktop database. To test them further for productional use they needed to be testing on the Regis server itself. All directories and codes used were copied on the server using WinSCP. Once they were copied to the server, they were then updated to use the server directories. Once this was done, they were tested and updated until they ran successfully. 
+
+**Step 1:** Create directories needed for python codes on server
+
+**Step 2:** Copy all python codes and data files for testing. 
+
+**Step 3:** Update files to use directories and Regis server
+
+**Step 3:** Run files for testing 
+
+**Step 4:** Check database for validation
+
+# Part 4: Install Chron scheduler on Regis server and create KSH files
+
+To automate the table creation process and data governance check chon was installed on the Regis server to schedule when these codes need to run. To scheduler these codes for automation ksh files needed to be created to run the code. These codes were created for both the data governance and table creation codes. These codes were set to run on a 15 minute internal and will continue to run until a trigger file is found. Once it is found the file stops running. If there are any error an email would be sent to whoever is chosen to look into the issue. 
+
+**Step 1:** Install Chron on Regis server
+
+**Step 2:** Create ksh files for both the data upload and data governance codes. 
+
+**Step 3:** Add ksh files to Chron scheduler. 
+
+# Part 4: Create HTML webform
+
+A webform was created to allow users to upload their data to the Regis sever from their local machine. This creates a way for students to upload their data to have a unique table created for them. 
 
 
-To test the database and python code an analysis was done. The analysis looked to see if there was a correlation on the number of confirmed cases of the West Nile virus and the amount of rainfall in Los Angeles California using a regression model. Los Angles California was chosen because it is a major city within California with a large population that has had an increased number of Confirmed West Nile virus cases. The reason why West Nile virus was chosen for this project because it is the leading cause mosquito borne disease that occurs in the United States (“West Nile Virus”, 2018). West Nile s spread by the Culex mosquito species and starts during mosquito season (summer through fall). There is no vaccines to prevent or medications treat it. Those that do get infected with West Nile might feel sick and develop a fever. It is only 1 out of 150 that do develop serious symptoms such as fever or death. The only way to prevent being bit by a mosquito that might have West Nile virus is by wearing mosquito repellent, wearing clothing to prevent bites, stay away from areas with stagnant water, take preventative measures to reduce the number of mosquitos at home. 
-
-The paper “Effects of rainfall on Culex mosquito population dynamics” by Lucas Valdez looks at how rainfall effects the population of the Culex mosquitos. This paper starts by mentioning that mosquito populations rely heavily climatic variables such as temperature and precipitation (Valdez, 2018). It then goes on to mention how Culex mosquitos are becoming an increasing health treat because of their ability to transfer illnesses such as the West Nile virus and St. Louis encephalitis virus to humans and domestic animals. Rainfall is one of the important climate factors when it comes to the mosquito population. This is the amount of rainfall determine the production and size of the mosquito breeding sites.  This paper used a dynamic model on the mosquito population that incorporates the effect of rainfall. The data used for the model in this paper was climate data from Cordoba city between the years 2008 and 2009 and used a compartmental ordinary differential equation model for mosquito abundance. From the results in the model it was seen that with rainfall there was an increase in the abundance of the mosquito population to some extent. The amount of rainfall and intensity of it effected the mosquito population differently. This is because the amount of rain over a period promotes breeding sites for mosquitos. If there is little rainfall with low precipitation, then the breeding sites tend to evaporate quickly. If rainfall was distributed over a few days then the mosquito population would increase. However if there it were to increase beyond a specific point then the rain becomes to thin to maintain breeding sites (Valdez, 2018).  In general, this paper identified that rainfall has a strong effect on the population of Culex mosquitos.
+# Part 5: Run Analysis to show proof of concept
 
 ## Overview
 
