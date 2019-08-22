@@ -53,13 +53,27 @@ When working on the previous project I tried to create the PostgreSQL database o
 
 **Step 1:** Run Commands needed for PostgreSQL database installation.
 
+![](Images/Install_Postgre.PNG)
+
+![](Images/complete_install.PNG)
+
+![](Images/Postgre_Initialized.PNG)
+
+![](Images/Start_Postgre.PNG)
+
+
+
 **Step 2:** Create new user
 
-**Step 3:** Create new database for health informatics school
+![](Images/Create_User.PNG)
 
 **Step 3:** Create new database for health informatics school
+
+![](Images/Create_H_INFO.PNG)
 
 **Step 4:** Open connections for database use
+
+![](Images/open_access.PNG)
 
 # Part 3: Copy and test all database python codes on server  
 
