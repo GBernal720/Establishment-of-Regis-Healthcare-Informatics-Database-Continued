@@ -101,7 +101,7 @@ The codes created for this project have all been used on a local desktop databas
 
 **Step 3:** Run files for testing 
 
-![](Images/Import_CSV_Server_Test. PNG)
+![](Images/Import_CSV_Server_Test.PNG)
 
 ![](Images/Run_zoom.PNG)
 
@@ -117,14 +117,25 @@ To automate the table crkeation process and data governance check chon was insta
 
 **Step 1:** Install Chron on Regis server
 
+![](Images/crontab_installed.PNG)
+
 **Step 2:** Create ksh files for both the data upload and data governance codes. 
 
+![](Images/KSH1.PNG)
+
+![](Images/KSH2.PNG)
+
 **Step 3:** Add ksh files to Chron scheduler. 
+
+![](Images/Cronjob_scheduled.PNG)
 
 # Part 4: Create HTML webform
 
 A webform was created to allow users to upload their data to the Regis sever from their local machine. This creates a way for students to upload their data to have a unique table created for them. 
 
+![](Images/HTML.PNG)
+
+![](Images/HTML_EXAMPLE.PNG)
 
 # Part 5: Run Analysis to show proof of concept
 
