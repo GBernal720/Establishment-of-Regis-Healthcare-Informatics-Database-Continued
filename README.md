@@ -40,11 +40,11 @@ Two Python codes were created for this project. The two codes create where Conve
 
 **Convert.py:** This code is used convert JSON and Excel files to a CSV file. The reason why they are being converted to CSV is because the codes used in the previous project for creating the unique tables works only with files in a  CSV format. Covering these files to a CSV instead of updating the previous code saved time, did not risk issues when updating previous code, and was the least path of resistance. This code works by using different python libraries for the file conversion. For JSON files PANDAS was used. PANDAS was chosen because of how it works with JSON files and its ability to export data frames to CSV. XLRD is used to go through each of the excel sheets within a file and covert them to a CSV file. This will turn a single excel file into a multiple CSV files depending on the number of sheets within it. The code uses an if statement to decide what library to use for conversion. 
 
-![](Images/Info.PNG)
+![](Images/Convert_python.PNG)
 
 **Database_Governance.py:** This code is used to check the age of a file that was used for creating a unique table. Based on the age of the file the code will go through and decide if the unique table created from that file needs to be deleted. If it does need to be deleted it connects to the PostgreSQL server and runs a drop table statement with the name of the of the file/table name.
 
-![](Images/Import_Function1.PNG
+![](Images/datagoverance_python.PNG)
 
 # Part 2: Create PostgreSQL database on Regis server 
 ## Previous Project Issues
@@ -77,7 +77,7 @@ The codes created for this project have all been used on a local desktop databas
 
 # Part 4: Install Chron scheduler on Regis server and create KSH files
 
-To automate the table creation process and data governance check chon was installed on the Regis server to schedule when these codes need to run. To scheduler these codes for automation ksh files needed to be created to run the code. These codes were created for both the data governance and table creation codes. These codes were set to run on a 15 minute internal and will continue to run until a trigger file is found. Once it is found the file stops running. If there are any error an email would be sent to whoever is chosen to look into the issue. 
+To automate the table crkeation process and data governance check chon was installed on the Regis server to schedule when these codes need to run. To scheduler these codes for automation ksh files needed to be created to run the code. These codes were created for both the data governance and table creation codes. These codes were set to run on a 15 minute internal and will continue to run until a trigger file is found. Once it is found the file stops running. If there are any error an email would be sent to whoever is chosen to look into the issue. 
 
 **Step 1:** Install Chron on Regis server
 
