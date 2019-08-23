@@ -187,11 +187,10 @@ To look into another example of this a filter was added to select a single regio
 When looking at the overall goal of the project we can see that the goals and requirements were met. The tools used for this project helped make sure that the database could run independently with little maintenance. This could be seen with the proof of concept used for this project. This project shows and creates a way to allow students to upload data to a database and use it as needed. This project and proof of concept can help all student and not just those in the health informatics school. This is because some students at Regis must sign up or pay to have their data stored by various companies. Making this project a process used by Regis could help students by providing them a way to store their data to be used for their classes. 
 
 # References 
-
 Flores, F. P. (2017, October 30). Dengue Cases in the Philippines. Retrieved August 22, 2019, from https://www.kaggle.com/grosvenpaul/dengue-cases-in-the-philippines
 
 The World's Most Advanced Open Source Relational Database. (n.d.). Retrieved June 26, 2019, from https://www.postgresql.org/
 
 Welcome to Python.org. (n.d.). Retrieved June 26, 2019, from https://www.python.org/
 
-Youtube Presentation: https://www.youtube.com/watch?v=N-74fgEW76M&feature=youtu.be
+Youtube Presentation: https://www.youtube.com/watch?v=wn3sZCkwmDg&feature=youtu.be
