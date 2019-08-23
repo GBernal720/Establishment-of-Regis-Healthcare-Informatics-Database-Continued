@@ -159,7 +159,7 @@ For this project data was
 
 ![](Images/Data_on_database.PNG)
 
-**Step 4:Cconnect to Tableau**
+**Step 4:Connect to Tableau**
 
 ![](Images/Tableau_connection.PNG)
 
@@ -175,17 +175,20 @@ For this project data was
 
 ![](Images/Final%20chart%20and%20results.PNG)
 
-![](Images/single_region.PNG)
+![](Images/single_region2.PNG)
 
-![](Images/Single_rsults.PNG)
+![](Images/Single_rsults2.PNG)
 
 # Results
-When looking at the regression model created by Tableau its easy to see that our model line is not a good fit for the data used. This shows that there is no correlation between rainfall and number of confirmed cases. To check and make sure that spear man’s correlation and the R squared value were calculated. Our correlation value was at -.29 and our R-square value was at 8% . Both of these values show a weak correlation between rainfall and confirmed cases of West Nile virus. These results could be affected by the amount of data used or by the fact that the rainfall data was from a single area within LA. 
+When looking at the regression model that was created by Tableau on top left chart, we can see that our linear regression line was not a good fit. Visually we can see that the line goes through the middle of the chart and does not come close to any of the points. Even when looking at the R-Squared and P-value we can even numerically see that it is not a good fit. When looking at the data line and forecast part of the report on the top right. We can see that dengue fever spiked in 2013 and ha slightly started to decline. The forecast created by Tableau even predicts that the number of cases would also decrease. 
+To look into another example of this a filter was added to select a single region. To identify the region with the highest number of cases the pie chart was used. By hovering over it to use the tool tip we could see that Region VII had the highest number of cases. When looking at this region alone we can see that the regression line was a better fit visually and numerically. Our forecasting line even shows that a slight decrease. This is consistent with what was seen when using the overall results.  	
 
 # Conclusion
-Tools used and code created successfully worked as planned with no issues. The most important function COPY for the data ingestion worked as expected. The Python code also worked as expected. It created the tables based off the headers and made the correct choice for each of the column data types in the CSV file. It also uploaded the data to their unique tables with no issues. Tableau was also able to connect to the database with easy, use the query created, and created the report as needed. Overall the project was a success. 
+When looking at the overall goal of the project we can see that the goals and requirements were met. The tools used for this project helped make sure that the database could run independently with little maintenance. This could be seen with the proof of concept used for this project. This project shows and creates a way to allow students to upload data to a database and use it as needed. This project and proof of concept can help all student and not just those in the health informatics school. This is because some students at Regis must sign up or pay to have their data stored by various companies. Making this project a process used by Regis could help students by providing them a way to store their data to be used for their classes. 
 
 # References 
+
+Flores, F. P. (2017, October 30). Dengue Cases in the Philippines. Retrieved August 22, 2019, from https://www.kaggle.com/grosvenpaul/dengue-cases-in-the-philippines
 
 The World's Most Advanced Open Source Relational Database. (n.d.). Retrieved June 26, 2019, from https://www.postgresql.org/
 
