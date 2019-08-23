@@ -42,7 +42,7 @@ Two Python codes were created for this project. The two codes create where Conve
 
 ![](Images/Convert_python.PNG)
 
-**Database_Governance.py:** This code is used to check the age of a file that was used for creating a unique table. Based on the age of the file the code will go through and decide if the unique table created from that file needs to be deleted. If it does need to be deleted it connects to the PostgreSQL server and runs a drop table statement with the name of the of the file/table name.
+**Database_Governance.py:** This code is used to check the last modified date age of a file that was used for creating a unique table. Based on the age of the file the code will go through and decide if the unique table created from that file needs to be deleted. If it does need to be deleted it connects to the PostgreSQL server and runs a drop table statement with the name of the of the file/table name.
 
 ![](Images/datagoverance_python.PNG)
 
@@ -113,7 +113,7 @@ The codes created for this project have all been used on a local desktop databas
 
 # Part 4: Install Chron scheduler on Regis server and create KSH files
 
-To automate the table crkeation process and data governance check chon was installed on the Regis server to schedule when these codes need to run. To scheduler these codes for automation ksh files needed to be created to run the code. These codes were created for both the data governance and table creation codes. These codes were set to run on a 15 minute internal and will continue to run until a trigger file is found. Once it is found the file stops running. If there are any error an email would be sent to whoever is chosen to look into the issue. 
+To automate the table creation process and data governance check chon was installed on the Regis server to schedule when these codes need to run. To scheduler these codes for automation ksh files needed to be created to run the code. These codes were created for both the data governance and table creation codes. These codes were set to run on a 15 minute internal and will continue to run until a trigger file is found. Once it is found the file stops running. If there are any error an email would be sent to whoever is chosen to look into the issue. 
 
 **Step 1:** Install Chron on Regis server
 
@@ -139,53 +139,45 @@ A webform was created to allow users to upload their data to the Regis sever fro
 
 # Part 5: Run Analysis to show proof of concept
 
+## Background
+
+To test the database created and the Python codes used to manage the database on the Regis server an analysis was done to provide a proof of concept. Since this practicum required a machine learning technique. The machine learning technique chosen for this project was regression. The reason why dengue fever was chosen as a health issue is because dengue cases have been increasing throughout the world. Dengue is a virus that is spread to people through the bite of an infected Aedes aegypti mosquito (“Dengue”, N.D.). Throughout the world there is an estimate of 3 billion people that are at risk of dengue fever. Out of these 3 billion at risk up to 400 million people get infected with dengue and out of these 400 a 100 million become ill. Out of the ones that become ill 22 thousand are estimated to get a sever case of dengue and die. Since dengue fever has been increasing throughout the world and there is no cure dengue fever is a major health issue and is why it was done for the proof of concept analysis for this project. 
+
 ## Overview
 
-For this project data was obtained from two different sources. The first source was from HealthData.gov and data collected was on confirmed West Nile virus cases in different cities within California. The next source was from Los Angeles Almanac and the data collected form this source was on the total rainfall in Los Angeles recorded from the USC downtown campus. Once these sources were collected the CSV files were checked to make sure no issues would occur when the python script mention in part two was ran for to create the files needed for the analysis. The issues identified within the CSV files were in the headers. The headers had spaces in them which can cause a common issue when creating a table. To correct this the columns were renamed to make sure this issue would no occur. After that the files were renamed to use my username (gbernal) and then the name of the file. This way they would be easy to identify and remember. Once this was done the python files were ran to create the table and upload the data to the unique table created. After this was done a Tableau report was created to create the regression model, calculate the correlation and R squared values, and visually see if there was a correlation between the two. After doing this the results showed that there was no correlation between the amount of rainfall and confirmed cases of West Nile virus in Los Angeles California. 
+For this project data was first collected from Kaggle. Kaggle is a site that stores data of various topics from different sources. Kaggle stores data in different data types and because of this it was used for all the python code testing. The data from Kaggle that was used as a proof of concept was dengue fever data from the Philippines. This data had 8 years of data for multiple regions throughout the Philippines. Once this data was downloaded it was then uploaded to the server using the HTML webform. After this I waited 15 min for the scheduler to run. The scheduler could have done it but then there is no way to see the actual code running. Once these codes were a simple query was ran to make sure that the data was in the database. After that the database was connected to Tableau to run the analysis and build a dashboard to tell a story with the data. 
+For this project data was 
 
 **Step 1: Obtain Data**
 
-West Nile Virus Source
+![](Images/1.PNG)
 
-![](Images/WNV_Site.PNG)
+**Step 2: Upload file to Server**
+![](Images/Upload.PNG)
 
-![](Images/WNV_Excel.PNG)
+**Step 3: Wait 15 min for scheduler and run simple query for table**
 
-LA Rainfall Source
+![](Images/Data_on_database.PNG)
 
-![](Images/LA_Rain.PNG)
+**Step 4:Cconnect to Tableau**
 
-![](Images/LA_Rain_Excel.PNG)
-
-**Step 2: Clean Data and Rename files**
-
-Two columns were seen to possibly cause an issue with the WNV excel data. Two of the columns had a space in the header. The Week Report column was removed since we are going to be doing this analysis by year and the Positive Cases columns was replaced with Postitive_Cases. 
-
-![](Images/WNV_Excel_Clean.PNG)
-
-![](Images/rename.PNG)
-
-**Step 3: Run Python Import_CSV.py code**
-
-![](Images/Run_Code.PNG)
-
-![](Images/Table_Commands.PNG)
-
-**Step 4: Create Query**
-
-![](Images/Query.PNG)
+![](Images/Tableau_connection.PNG)
 
 **Step 5: Import Data into Tableau**
 
-![](Images/Tableau_Connection.PNG)
+![](Images/Tableau_SQL.PNG)
 
-![](Images/Tableau_Query.PNG)
+![](Images/data_in_tableau.PNG)
 
 **Step 6: Create Report**
 
-![](Images/report_final.PNG)
+![](Images/Final%20chart.PNG)
 
-![](Images/model.PNG)
+![](Images/Final%20chart%20and%20results.PNG)
+
+![](Images/single_region.PNG)
+
+![](Images/Single_rsults.PNG)
 
 # Results
 When looking at the regression model created by Tableau its easy to see that our model line is not a good fit for the data used. This shows that there is no correlation between rainfall and number of confirmed cases. To check and make sure that spear man’s correlation and the R squared value were calculated. Our correlation value was at -.29 and our R-square value was at 8% . Both of these values show a weak correlation between rainfall and confirmed cases of West Nile virus. These results could be affected by the amount of data used or by the fact that the rainfall data was from a single area within LA. 
@@ -193,30 +185,10 @@ When looking at the regression model created by Tableau its easy to see that our
 # Conclusion
 Tools used and code created successfully worked as planned with no issues. The most important function COPY for the data ingestion worked as expected. The Python code also worked as expected. It created the tables based off the headers and made the correct choice for each of the column data types in the CSV file. It also uploaded the data to their unique tables with no issues. Tableau was also able to connect to the database with easy, use the query created, and created the report as needed. Overall the project was a success. 
 
-# What’s next?
-
-### Possible Project Ideas
-
-* Add this project to Regis servers and add API
-  * API would allow users to upload their CSV files to a directory for python codes to run and create their data tables
-* Add data governance
-  * Data governance would need to added to this database.
-   * If not the database will get extremely messy and ill have a large amount of data stored in it that isn’t being used
-* Update Import_Function.py to use other data formats
-  * Make it so that the funciton can import any file regardless of its format
-
 # References 
 
 The World's Most Advanced Open Source Relational Database. (n.d.). Retrieved June 26, 2019, from https://www.postgresql.org/
 
-Total Seasonal Rainfall (Precipitation). (n.d.). Retrieved June 26, 2019, from http://www.laalmanac.com/weather/we13.php
-
-Valdez, L. (2018, October 10). Effects of rainfall on Culex mosquito population dynamics. Retrieved June 26, 2019, from https://arxiv.org/pdf/1703.08915.pdf
-
 Welcome to Python.org. (n.d.). Retrieved June 26, 2019, from https://www.python.org/
-
-West Nile virus. (2018, December 10). Retrieved June 26, 2019, from https://www.cdc.gov/westnile/index.html
-
-West Nile Virus Cases, 2006-present. (2019, June 25). Retrieved June 26, 2019, from https://healthdata.gov/dataset/west-nile-virus-cases-2006-present
 
 Youtube Presentation: https://www.youtube.com/watch?v=N-74fgEW76M&feature=youtu.be
